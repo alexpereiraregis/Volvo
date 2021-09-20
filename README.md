@@ -1,6 +1,6 @@
 # Volvo
 <b>Aplicacao Teste Volvo.</b><br>
-Aplicação criada em .NET Core 5.0, com banco de Dados Sql Server.
+Aplicação criada em .NET 5.0 (core), com banco de Dados Sql Server.
 
 <b> A Arquitetura foi dividida nas seguintes Camadas:</b>  <br> 
 1 - Volvo.Api: Camada que contém as Apis principais responsáveis pelas operações de Inclusão, edição, consulta e Exclusão; <br>
