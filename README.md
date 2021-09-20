@@ -14,4 +14,11 @@ Aplicação criada em .NET Core 5.0, com banco de Dados Sql Server.
 <b>Instruções de Execução:</b><br>
 1 - Para Executar a aplicação necessita-se da IDE Visual Studio mínimo 2019; <br>
 2 - No Visual Studio, abrir a solução <b> Volvo.sln </b> <br>
-3 - Terá de configurar os projetos <b>Volvo.Api</b> e <b>Volvo.MVC</b> para que estes sejam executados assim que for acionado o <b>Start</b>. 
+3 - Terá de configurar os projetos <b>Volvo.Api</b> e <b>Volvo.MVC</b> para que estes sejam executados assim que for acionado o <b>Start</b>. Para isso, seguir as instruções da imagem abaixo:<br>
+    3.1 - Com o clique direito sobre a solution 'Volvo', escolher no Menu a opção <b>Set Startup Projects</b>:
+![image](https://user-images.githubusercontent.com/14164810/133961783-976f7206-81f8-4d9d-98f0-da1c1d8d4405.png)<br>
+    3.2 - Será Aberto uma tela Property Pages. Nesta tela, escolher na esquerda, o submenu <b>Startup Project</b> do menu principal <b>Common Properties</b>:
+    3.3 - Será aberto do lado direito outras opções. Escolher <b>Multiple startup projects</b> e escolher para os projetos <b>Volvo.Api</b> e <b>Volvo.MVC</b> a Action <b>Start</b>;
+![image](https://user-images.githubusercontent.com/14164810/133962450-c174ee61-5ae0-442b-a25b-b5b91583561b.png)
+
+
