@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sistema Teste Volvo</h1>
+
+</div>
+
+@using Volvo.MVC.Response
+@model PageResponse<TruckResponse>
+@{ ViewData["Title"] = "Cadastro"; }
+
+
+
+<div class="container">
+    <div class="table-wrapper">
+        <div asp-validation-summary="All"></div>
+        <div class="row">
+            <div class="col-sm-12"></div>
+            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#cadastro">Adicionar</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-12"></div>
+            <table id="customers">
+                <tr>
+                    <th>Modelo</th>
+                    <th>Ano fabricação</th>
+                    <th>Ano modelo</th>
+                    <th class="text-center"></th>
+                </tr>
+                @{ foreach (var t in Model.List)
+                    {
+                        <tr>
+                            <td>@t.Model</td>
+                            <td>@t.YearManufacture</td>
+                            <td>@t.ModelYear</td>
+                            <td class="text-center">
+                                <a class='btn btn-info btn-xs' onclick="editTruck('@t.Id')">
+                                    <span class="glyphicon glyphicon-edit"></span> Alterar
+                                </a>
+                                <a class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete" onclick="atribuirIdCaminhao('@t.Id')">
+                                    <span class="glyphicon glyphicon-remove"></span> Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    } }
+
+            </table>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div id="cadastro" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastro de caminhão</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Home" asp-action="Create" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                    @{
+                        var truckRequest = Model.Obj;
+
+                        <div class="form-group">
+                            <label>Modelo</label>
+                            <select asp-for=@truckRequest.Model asp-items="ViewBag.truckModel" class="form-control"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Ano de fabricação</label>
+                            <input asp-for=@truckRequest.YearManufacture class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ano modelo</label>
+                            <select asp-for=@truckRequest.ModelYear asp-items="ViewBag.truckModelYear" class="form-control"></select>
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="edit" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastro</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div id="formEdit" class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Deseja excluir ?</h5>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Home" asp-action="Delete" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                    <input id="truckRequest_Id" name="truckRequest.Id" type="hidden">
+
+                    <button type="submit" class="btn btn-primary">Sim</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
