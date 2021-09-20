@@ -11,5 +11,7 @@ Aplicação criada em .NET Core 5.0, com banco de Dados Sql Server.
 6 - Volvo.MVC: Front-End. Interface do Usuário;<br>
 7 - Volvo.Test: Onde estão os Testes unitários.
 
-<b>Instruções de Execução:<b><br>
-  Para Executar a aplicação necessita-se da IDE Visual Studio mínimo 2019.
+<b>Instruções de Execução:</b><br>
+1 - Para Executar a aplicação necessita-se da IDE Visual Studio mínimo 2019; <br>
+2 - No Visual Studio, abrir a solução <b> Volvo.sln </b> <br>
+3 - Terá de configurar os projetos <b>Volvo.Api</b> e <b>Volvo.MVC</b> para que estes sejam executados assim que for acionado o <b>Start</b>. 
